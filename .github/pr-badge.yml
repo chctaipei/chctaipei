@@ -4,7 +4,7 @@
   url: "https://compalswhq.atlassian.net/browse/$issuePrefix"
   when: "$issuePrefix"
 
-- label: "WIP"
+- label: "🛑"
   message: "WIP"
   color: "yellow"
-  when: "$labels.includes('WIP')"
+  when: "$payload.pull_request.title.includes('WIP')"
