@@ -8,3 +8,7 @@
   message: "WIP"
   color: "yellow"
   when: "$payload.pull_request.title.includes('WIP')"
+
+- label: "✨"
+  message: "$payload.pull_request.title"
+  color: "yellow"
