@@ -10,5 +10,6 @@ caseSensitive: false
 # Explicit keyword mappings to labels. Form of match:label. Required.
 labelMappings:
   "feat:": enhancement
+  "feat(": enhancement
   "fix:": bug
-  "wip": WIP
+  "fix(": bug
