@@ -18,15 +18,17 @@
 
 ### 其他補充
 
-- 請描述相關細節
+- (請描述相關細節)
 
 ___
 ## 測試程式
-- [ ] 是否有相關測試程式，如有請做下列檢查
+- 是否有相關測試程式，如有請做下列檢查，請參考: [Writing clean JavaScript tests with the BASIC principles](https://yonigoldberg.medium.com/fighting-javascript-tests-complexity-with-the-basic-principles-87b7622eac9a)
 
-### 檢查測試程式 
-> 請參考: [Writing clean JavaScript tests with the BASIC principles](https://yonigoldberg.medium.com/fighting-javascript-tests-complexity-with-the-basic-principles-87b7622eac9a)
+<details>
+<summary>測試程式檢查</summary>
+
 - [ ] 測試說明採中文撰寫，清楚且詳細 (AAA pattern)
 - [ ] 測試資料及 function 是否獨立，不依賴及使用原始程式
 - [ ] 測試結果是否有檢查 API response
 - [ ] 測試結果是否有對資料庫的異動做額外/獨立檢查
+</details>
