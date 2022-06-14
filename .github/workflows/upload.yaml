@@ -1,0 +1,36 @@
+name: publish webpack artifact
+on:
+  release:
+    types: [published]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull source
+        uses: actions/checkout@v2
+        
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+          
+      # - name: Yarn Install
+      # Install dependencies
+      # - run: yarn install
+
+      # - name: Build webpack
+      # Build and output webpack stats
+      # - run: yarn build --json webpack-stats.json
+
+      - name: Zip test
+        run: zip md.zip "*.md"
+
+      - name: Upload TXT to release
+        uses: Shopify/upload-to-release@master
+        with:
+          name: md.zip
+          path: md.zip
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
