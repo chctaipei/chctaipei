@@ -39,4 +39,4 @@ jobs:
         with:
           name: md.zip
           path: md.zip
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          # repo-token: ${{ secrets.GITHUB_TOKEN }}
