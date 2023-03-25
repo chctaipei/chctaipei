@@ -1,0 +1,48 @@
+name: publish webpack artifact
+on:
+  release:
+    # published: when a release is published, including pre-releases
+    # edited:    when a release is modified in some way
+    # released:  when a pre-release or draft is released
+    types: [published]
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:    
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull source
+        uses: actions/checkout@v2
+        
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          # cache: 'yarn'
+          
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Test
+        run: |
+          echo $RELEASE_VERSION
+          echo ${{ env.RELEASE_VERSION }}
+          
+      # - name: Yarn Install
+      # Install dependencies
+      # - run: yarn install
+
+      # - name: Build webpack
+      # Build and output webpack stats
+      # - run: yarn build --json webpack-stats.json
+
+      - name: Zip test
+        run: zip md.zip "*.md"
+
+      - name: Upload TXT to release
+        uses: Shopify/upload-to-release@master
+        with:
+          name: md.zip
+          path: md.zip
+          # repo-token: ${{ secrets.GITHUB_TOKEN }}
